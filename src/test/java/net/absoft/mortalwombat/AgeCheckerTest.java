@@ -9,6 +9,8 @@ public class AgeCheckerTest {
     public void testAgedUserCanPlay() {
         AgeChecker ageChecker = new AgeChecker();
         Assert.assertTrue(ageChecker.canPlayGame(19), "Aged user can't play game");
+        ageChecker.setMinAge(14);
+        Assert.assertTrue(ageChecker.canPlayGame(19), "Aged user can't play game");
     }
 
     @Test
@@ -16,4 +18,11 @@ public class AgeCheckerTest {
         AgeChecker ageChecker = new AgeChecker();
         Assert.assertTrue(ageChecker.canNotPlayGame(17),"Aged user can play game");
     }
+
+    @Test
+    public void testUnderAgedUserCanNotPlay() {
+        AgeChecker ageChecker = new AgeChecker();
+        Assert.assertFalse(ageChecker.canPlayGame(17), "Under aged user can play game");
+    }
+
 }
